@@ -14,5 +14,7 @@ app.use((err, req, res, next) => {
   res.status(500).send(err);
 });
 
-db.sync()
-  .then(() => app.listen(3000));
+// db.sync()
+//   .then(() => app.listen(3000));
+
+app.listen(3000);
