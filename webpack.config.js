@@ -1,3 +1,14 @@
+const path = require('path');
+
+const cssLoader = {
+  loader: 'css-loader',
+  options: {
+    modules: true,
+    localIdentName: '[path][name]__[local]--[hash:base64:5]',
+    ignore: '/node_modules/',
+  },
+};
+
 module.exports = {
   mode: 'development',
   entry:'./src/index.js',
@@ -9,6 +20,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  cache: false,
   module: {
     rules: [
       {
@@ -17,6 +29,17 @@ module.exports = {
         exclude: /node_modules/,
         query: { presets: [ 'env', 'stage-0', 'react'] },
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          cssLoader,
+        ],
+      },
     ],
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true,
+  }
 };
