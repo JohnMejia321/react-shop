@@ -33,7 +33,11 @@ const initialState = {
   const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'ADD_ARTICLE':
-        return { ...state, productsData: [...state.productsData, ...action.payload] };
+        if (Array.isArray(action.payload)){
+          return { ...state, productsData: [...state.productsData, ...action.payload] };
+        } else {
+          return { ...state, productsData: [...state.productsData, action.payload] };
+        }
       default:
         return state;
     }
