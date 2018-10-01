@@ -4,7 +4,6 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Products from './components/Products';
 import Category from './components/Category';
 
-
 /* Home component */
 const Home = () => (
   <div>

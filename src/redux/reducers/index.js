@@ -33,7 +33,7 @@ const initialState = {
   const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       case 'ADD_ARTICLE':
-        return { ...state, productsData: [...state.productsData, action.payload] };
+        return { ...state, productsData: [...state.productsData, ...action.payload] };
       default:
         return state;
     }
