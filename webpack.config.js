@@ -36,6 +36,14 @@ module.exports = {
           cssLoader,
         ],
       },
+      {
+        test: /\.styl$/,
+        use: [
+          'style-loader',
+          cssLoader,
+          'stylus-loader',
+        ],
+      },    
     ],
   },
   devServer: {
